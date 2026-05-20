@@ -4,29 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>You're Invited — Constance Benson</title>
-
-  <!-- Google Fonts: Playfair Display (elegant headings) + Lato (clean body text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-
-  <!-- html2canvas: lets us save the invitation card as a PNG image -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ============================================================
-    SCREEN 1: Welcome / Name Entry
-    Edit: the emoji, heading text, subtitle, or placeholder below
-  ============================================================ -->
   <div id="screen-welcome" class="screen active">
     <div class="welcome-card">
       <div class="grad-icon">🎓</div>
       <h1>You're Invited</h1>
       <p class="subtitle">Before opening your invitation,<br />tell me your name.</p>
-
       <div class="input-group">
         <input
           type="text"
@@ -42,11 +32,6 @@
     </div>
   </div>
 
-
-  <!-- ============================================================
-    SCREEN 2: Loading Screen
-    Edit: change the loading message text below
-  ============================================================ -->
   <div id="screen-loading" class="screen">
     <div class="loading-content">
       <div class="loading-spinner"></div>
@@ -54,65 +39,36 @@
     </div>
   </div>
 
-
-  <!-- ============================================================
-    SCREEN 3: Invitation Card
-    EDIT GRADUATION DETAILS inside the card body below.
-    Look for the "EDIT:" comments throughout this section.
-    Colors are in style.css — search for "EDIT COLORS".
-  ============================================================ -->
   <div id="screen-invitation" class="screen">
 
-    <!-- Confetti canvas: sits behind the card, animated by script.js -->
     <canvas id="confetti-canvas"></canvas>
 
-    <!-- ==========================================
-      INVITATION CARD
-      This entire element is what gets saved as a PNG.
-      Do not move the action buttons inside here.
-    ========================================== -->
     <div id="invitation-card">
 
-      <!-- Card Top Header -->
       <div class="card-header">
         <div class="ornament top-ornament">✦ ✦ ✦</div>
         <div class="grad-cap-icon">🎓</div>
         <p class="ceremony-label">Spring 2026 Convocation Ceremony</p>
-        <!-- EDIT: Change ceremony label above -->
       </div>
 
-      <!-- Card Main Body -->
       <div class="card-body">
 
-        <!-- Personalized greeting — name is injected by script.js -->
         <p class="dear-line">Dear <span id="card-guest-name">Guest</span>,</p>
-
-        <!-- Random heartfelt message — set by script.js from the messages array -->
         <p id="personal-message" class="personal-message"></p>
 
         <div class="divider">— ✦ —</div>
 
-        <!-- ============================================================
-          GRADUATION DETAILS — EDIT EVERYTHING IN THIS BLOCK
-        ============================================================ -->
         <div class="invite-details">
-
           <p class="invite-intro">It would mean a great deal to have you join me as I celebrate my graduation.</p>
-
           <div class="event-info">
-
             <div class="info-row">
               <span class="info-icon">📅</span>
               <span>Monday, June 15, 2026</span>
-              <!-- EDIT: Ceremony date -->
             </div>
-
             <div class="info-row">
               <span class="info-icon">🕖</span>
               <span>7:00 p.m.</span>
-              <!-- EDIT: Ceremony time -->
             </div>
-
             <div class="info-row">
               <span class="info-icon">📍</span>
               <span>
@@ -120,51 +76,35 @@
                 <small>(formerly City View Room)</small><br />
                 RBC Convention Centre<br />
                 375 York Avenue, Winnipeg, MB
-                <!-- EDIT: Venue name and full address -->
               </span>
             </div>
-
           </div>
-          <!-- end .event-info -->
-
         </div>
-        <!-- end .invite-details -->
 
         <div class="divider">— ✦ —</div>
 
         <p class="closing-line">With love and gratitude,</p>
         <p class="signature">Constance Benson</p>
-        <!-- EDIT: Your name / closing signature -->
 
       </div>
-      <!-- end .card-body -->
 
-      <!-- Card Footer -->
       <div class="card-footer">
         <div class="ornament bottom-ornament">✦ ✦ ✦</div>
         <p class="footer-note">Class of 2026</p>
-        <!-- EDIT: Graduation year -->
       </div>
 
     </div>
-    <!-- end #invitation-card -->
 
-
-    <!-- Action buttons — these sit BELOW the card and are NOT saved in the image -->
     <div class="action-buttons">
-
       <button class="btn-save" onclick="saveAsImage()">
         📸 &nbsp;Save Invitation as Image
       </button>
-
       <button class="btn-maps" onclick="openMaps()">
         📍 &nbsp;Open Location in Google Maps
       </button>
-
     </div>
 
   </div>
-  <!-- end #screen-invitation -->
 
   <script src="script.js"></script>
 </body>
