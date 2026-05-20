@@ -1,17 +1,17 @@
 :root {
-  --color-bg:           #faf6f0;
+  --color-bg:           #fdf9f3;
   --color-card-bg:      #ffffff;
-  --color-gold:         #c9a84c;
-  --color-gold-dark:    #a8813a;
+  --color-gold:         #D4AF37;
+  --color-gold-dark:    #B8960C;
   --color-champagne:    #f5e6c8;
-  --color-beige:        #e8dcc8;
-  --color-text:         #2c2218;
-  --color-text-light:   #6b5744;
-  --color-text-muted:   #9e8a75;
-  --color-border:       #e0d0b8;
-  --color-shadow:       rgba(100, 70, 30, 0.12);
-  --color-header-dark:  #2c2218;
-  --color-header-mid:   #4a3728;
+  --color-beige:        #e0ceae;
+  --color-text:         #1a0f06;
+  --color-text-light:   #3d2810;
+  --color-text-muted:   #5c4530;
+  --color-border:       #cebfa0;
+  --color-shadow:       rgba(80, 40, 10, 0.18);
+  --color-header-dark:  #2d1a08;
+  --color-header-mid:   #5a3010;
 }
 
 *, *::before, *::after {
@@ -27,6 +27,7 @@ html, body {
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .screen {
@@ -54,7 +55,7 @@ html, body {
   max-width: 400px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 10px 50px var(--color-shadow);
+  box-shadow: 0 6px 24px var(--color-shadow);
   border: 1px solid var(--color-border);
 }
 
@@ -79,7 +80,7 @@ html, body {
   color: var(--color-text-light);
   line-height: 1.75;
   margin-bottom: 34px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .input-group {
@@ -204,7 +205,7 @@ html, body {
   border-radius: 20px;
   max-width: 420px;
   width: 100%;
-  box-shadow: 0 14px 60px var(--color-shadow);
+  box-shadow: 0 6px 24px var(--color-shadow);
   border: 1px solid var(--color-border);
   overflow: hidden;
   position: relative;
@@ -250,11 +251,10 @@ html, body {
 .ceremony-label {
   font-family: 'Lato', sans-serif;
   font-size: 0.72rem;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-champagne);
-  opacity: 0.85;
+  color: #f0d898;
 }
 
 .card-body {
@@ -283,6 +283,7 @@ html, body {
   line-height: 1.85;
   margin-bottom: 6px;
   font-style: italic;
+  -webkit-font-smoothing: antialiased;
 }
 
 .divider {
@@ -295,17 +296,17 @@ html, body {
 
 .invite-intro {
   font-size: 0.88rem;
-  color: var(--color-text-muted);
+  color: var(--color-text-light);
   text-align: center;
   margin-bottom: 16px;
   line-height: 1.7;
 }
 
 .event-info {
-  background: var(--color-bg);
+  background: #ffffff;
   border-radius: 12px;
   padding: 18px 20px;
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -328,7 +329,7 @@ html, body {
 
 .info-row small {
   font-size: 0.78rem;
-  color: var(--color-text-muted);
+  color: var(--color-text-light);
   display: block;
 }
 
@@ -351,8 +352,8 @@ html, body {
 }
 
 .card-footer {
-  background: linear-gradient(135deg, #f9f2e8 0%, #f0e6d3 100%);
-  border-top: 1px solid var(--color-border);
+  background: #f5ead8;
+  border-top: 1.5px solid var(--color-border);
   padding: 18px 28px 22px;
   text-align: center;
 }
