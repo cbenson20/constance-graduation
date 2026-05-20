@@ -1,0 +1,511 @@
+/* ============================================================
+   GRADUATION INVITATION — style.css
+   ============================================================
+
+   ============================================================
+   EDIT COLORS HERE
+   All colors are CSS variables — change them in ONE place
+   and they update everywhere on the site.
+   ============================================================ */
+:root {
+  --color-bg:           #faf6f0;           /* Page background: soft ivory */
+  --color-card-bg:      #ffffff;           /* Card background: clean white */
+  --color-gold:         #c9a84c;           /* Primary gold accent */
+  --color-gold-dark:    #a8813a;           /* Deeper gold for hover / emphasis */
+  --color-champagne:    #f5e6c8;           /* Warm champagne tones */
+  --color-beige:        #e8dcc8;           /* Beige for borders and backgrounds */
+  --color-text:         #2c2218;           /* Main text: deep charcoal brown */
+  --color-text-light:   #6b5744;           /* Secondary text: medium brown */
+  --color-text-muted:   #9e8a75;           /* Subtle text: warm grey-brown */
+  --color-border:       #e0d0b8;           /* Dividers and borders */
+  --color-shadow:       rgba(100, 70, 30, 0.12); /* Card drop shadow */
+  --color-header-dark:  #2c2218;           /* Card header dark background */
+  --color-header-mid:   #4a3728;           /* Card header gradient end */
+}
+
+/* ============================================================
+   BASE RESET
+============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   SCREEN SYSTEM
+   Only the screen with class "active" is visible.
+   script.js switches screens by toggling this class.
+============================================================ */
+.screen {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   SCREEN 1 — WELCOME / NAME ENTRY
+============================================================ */
+#screen-welcome {
+  background: linear-gradient(160deg, var(--color-champagne) 0%, var(--color-bg) 65%);
+  padding: 32px 20px;
+}
+
+.welcome-card {
+  background: var(--color-card-bg);
+  border-radius: 22px;
+  padding: 52px 40px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 50px var(--color-shadow);
+  border: 1px solid var(--color-border);
+}
+
+/* Graduation emoji at the top */
+.grad-icon {
+  font-size: 54px;
+  margin-bottom: 18px;
+  display: block;
+}
+
+/* "You're Invited" heading */
+.welcome-card h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.welcome-card .subtitle {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  line-height: 1.75;
+  margin-bottom: 34px;
+  font-weight: 300;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Name text input */
+#guest-name {
+  width: 100%;
+  padding: 15px 18px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  outline: none;
+  text-align: center;
+  transition: border-color 0.25s ease;
+  letter-spacing: 0.01em;
+}
+
+#guest-name:focus {
+  border-color: var(--color-gold);
+}
+
+#guest-name::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* "Open Invitation" button */
+#open-invitation-btn {
+  width: 100%;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+#open-invitation-btn:hover {
+  opacity: 0.90;
+  transform: translateY(-2px);
+}
+
+#open-invitation-btn:active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ============================================================
+   SCREEN 2 — LOADING
+============================================================ */
+#screen-loading {
+  background: var(--color-bg);
+}
+
+.loading-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Spinning ring animation */
+.loading-spinner {
+  width: 52px;
+  height: 52px;
+  border: 3px solid var(--color-beige);
+  border-top-color: var(--color-gold);
+  border-radius: 50%;
+  animation: spin 0.85s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  letter-spacing: 0.01em;
+}
+
+/* Animated "..." dots */
+.dots {
+  display: inline-block;
+  animation: dotPulse 1.5s infinite;
+}
+
+@keyframes dotPulse {
+  0%, 20%  { opacity: 0; }
+  50%      { opacity: 1; }
+  80%, 100% { opacity: 0; }
+}
+
+/* ============================================================
+   SCREEN 3 — INVITATION
+============================================================ */
+#screen-invitation {
+  background: linear-gradient(160deg, var(--color-champagne) 0%, var(--color-bg) 65%);
+  padding: 28px 16px 48px;
+  position: relative;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+/* Confetti canvas: full-screen, behind everything, non-interactive */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   INVITATION CARD
+   This is the element captured by html2canvas for saving.
+============================================================ */
+#invitation-card {
+  background: var(--color-card-bg);
+  border-radius: 20px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 14px 60px var(--color-shadow);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+  /* Animate card entrance */
+  animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- CARD HEADER (dark top section) --- */
+.card-header {
+  background: linear-gradient(
+    135deg,
+    var(--color-header-dark) 0%,
+    var(--color-header-mid) 100%
+  );
+  padding: 30px 28px 24px;
+  text-align: center;
+}
+
+.ornament {
+  color: var(--color-gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.35em;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.grad-cap-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.ceremony-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-champagne);
+  opacity: 0.85;
+}
+
+/* --- CARD BODY (main content) --- */
+.card-body {
+  padding: 34px 30px 28px;
+}
+
+/* "Dear [Name]," */
+.dear-line {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+/* The guest name inside "Dear [Name]" is gold italic */
+#card-guest-name {
+  font-style: italic;
+  color: var(--color-gold-dark);
+}
+
+/* Heartfelt random message */
+.personal-message {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+  line-height: 1.85;
+  margin-bottom: 6px;
+  font-style: italic;
+}
+
+/* Gold divider */
+.divider {
+  text-align: center;
+  color: var(--color-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  margin: 22px 0;
+}
+
+/* "It would mean a great deal..." intro line */
+.invite-intro {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+/* Graduate's name — the centrepiece */
+.graduate-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+/* School / program label */
+.degree-note {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+/* Event info box (date / time / location) */
+.event-info {
+  background: var(--color-bg);
+  border-radius: 12px;
+  padding: 18px 20px;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.91rem;
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+.info-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.info-row small {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  display: block;
+}
+
+/* "With love and gratitude," */
+.closing-line {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--color-text-light);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* Signature */
+.signature {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* --- CARD FOOTER --- */
+.card-footer {
+  background: linear-gradient(135deg, #f9f2e8 0%, #f0e6d3 100%);
+  border-top: 1px solid var(--color-border);
+  padding: 18px 28px 22px;
+  text-align: center;
+}
+
+.bottom-ornament {
+  margin-bottom: 8px;
+}
+
+.footer-note {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark);
+}
+
+/* ============================================================
+   ACTION BUTTONS (below card, not saved in image)
+============================================================ */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+  width: 100%;
+  margin-top: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-save,
+.btn-maps {
+  width: 100%;
+  padding: 15px 18px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.93rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+/* Gold save button */
+.btn-save {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  color: #fff;
+}
+
+/* Outlined maps button */
+.btn-maps {
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  border: 1.5px solid var(--color-border);
+}
+
+.btn-save:hover,
+.btn-maps:hover {
+  opacity: 0.86;
+  transform: translateY(-2px);
+}
+
+.btn-save:active,
+.btn-maps:active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ============================================================
+   RESPONSIVE — already mobile-first, but fine-tune on larger screens
+============================================================ */
+@media (min-width: 480px) {
+  .welcome-card {
+    padding: 56px 48px;
+  }
+
+  .card-body {
+    padding: 38px 36px 32px;
+  }
+}
